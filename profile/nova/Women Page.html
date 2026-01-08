@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NØVÊ – Women Collection</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    body { background: #0b0b0b; color: white; font-family: Arial, sans-serif; }
+    .glow-btn { background: linear-gradient(90deg, #7c3aed, #9333ea); padding: 12px 28px; border-radius: 999px; font-weight: 600; transition: .4s; }
+    .glow-btn:hover { box-shadow: 0 0 25px rgba(147, 51, 234, .8); transform: translateY(-3px); }
+    .floating-img { animation: float 6s ease-in-out infinite; }
+    @keyframes float { 0% { transform: translateY(0) } 50% { transform: translateY(-20px) } 100% { transform: translateY(0) } }
+    .card-hover { transition: .4s; }
+    .card-hover:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(255, 255, 255, .08); }
+    .section-bg { position: relative; }
+    .section-bg::before { content: ""; position: absolute; top: -50px; left: -50px; width: 400px; height: 400px; background: linear-gradient(135deg, #9333ea, #7c3aed); filter: blur(150px); z-index: 0; }
+    .section-bg::after { content: ""; position: absolute; bottom: -50px; right: -50px; width: 400px; height: 400px; background: linear-gradient(135deg, #7c3aed, #9333ea); filter: blur(150px); z-index: 0; }
+  </style>
+</head>
+
+<body>
+  
+<nav class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="Home.html" class="text-3xl font-bold tracking-widest">NØVÊ<span class="text-purple-400 ml-2">Style</span></a>
+    <ul class="hidden md:flex gap-6 text-sm uppercase tracking-wide">
+          <li><a href="Home.html" class="hover:text-purple-400">Home</a></li>
+      <li><a href="Men Page.html" class="hover:text-purple-400">Men</a></li>
+      <li><a href="Women Page.html" class="hover:text-purple-400">Women</a></li>
+      <li><a href="gift.html" class="hover:text-purple-400">Gifts</a></li>
+      <li><a href="Custom Page.html" class="hover:text-purple-400">Custom Page</a></li>
+      <li><a href="CustomPersonalize.html" class="hover:text-purple-400">CustomPersonalize</a></li>
+      <li><a href="Gift Page.html" class="hover:text-purple-400">Gift Boxes
+</a></li>
+      <li><a href="Story Page.html" class="hover:text-purple-400">Gift Page</a></li>
+      <li><a href="basket.html" class="hover:text-purple-400">Basket</a></li>
+
+
+    </ul>
+    <button id="menuBtn" class="md:hidden text-3xl">☰</button>
+  </div>
+  <div id="mobileMenu" class="hidden bg-black/95 px-6 pb-6">
+    <ul class="flex flex-col gap-4 text-sm uppercase">
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="Men Page.html">Men</a></li>
+      <li><a href="Women Page.html">Women</a></li>
+      <li><a href="gift.html">Gifts</a></li>
+      <li><a href="Custom Page.html">Custom</a></li>
+      <li><a href="basket.html">Basket</a></li>
+       <li><a href="CustomPersonalize.html">CustomPersonalize</a></li>
+
+    </ul>
+  </div>
+</nav>
+<div class="h-24"></div>
+  <!-- HERO -->
+  <section class="min-h-[60vh] flex items-center section-bg">
+    <div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div data-aos="fade-right">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-6"> Women <span class="text-purple-400">Collection</span></h1>
+        <p class="text-gray-300 text-lg md:text-xl mb-8 leading-relaxed">
+          اكتشفي أحدث تشكيلات الستات من Hoodies، T-Shirts، Jackets وكل القطع اللي تخلي ستايلك أنيق وجذاب.
+        </p>
+        <a href="#products" class="glow-btn text-lg inline-block">Shop Now</a>
+      </div>
+      <div class="flex justify-center" data-aos="fade-left">
+        <img src="wo.jpg" class="w-[350px] md:w-[450px] lg:w-[500px] floating-img drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)] rounded-xl">
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS GRID -->
+  <section id="products" class="py-24 max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl text-center mb-16">Our Hoodies & Tops</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+
+      <!-- Product Template -->
+      <div class="bg-white/5 p-4 rounded-2xl text-center card-hover" data-aos="fade-up">
+        <img src="wom.jpg" class="mx-auto w-full h-64 object-cover rounded-xl mb-4">
+        <h3 class="text-xl font-semibold mb-2">Pink Hoodie</h3>
+        <p class="text-gray-400 mb-3">ستايل أنيق ومريح.</p>
+        <button class="glow-btn text-sm w-full add-to-basket" data-name="Pink Hoodie" data-price="300">Add to Basket</button>
+      </div>
+
+      <div class="bg-white/5 p-4 rounded-2xl text-center card-hover" data-aos="fade-up" data-aos-delay="100">
+        <img src="European And American Fashion New Casual Young….jpg" class="mx-auto w-full h-64 object-cover rounded-xl mb-4">
+        <h3 class="text-xl font-semibold mb-2">White Top</h3>
+        <p class="text-gray-400 mb-3">كلاسيك وبسيط لكل يوم.</p>
+        <button class="glow-btn text-sm w-full add-to-basket" data-name="White Top" data-price="250">Add to Basket</button>
+      </div>
+
+      <div class="bg-white/5 p-4 rounded-2xl text-center card-hover" data-aos="fade-up" data-aos-delay="200">
+        <img src="bla.jpg" class="mx-auto w-full h-64 object-cover rounded-xl mb-4">
+        <h3 class="text-xl font-semibold mb-2">Black Hoodie</h3>
+        <p class="text-gray-400 mb-3">مثالي للشتاء والمناسبات.</p>
+        <button class="glow-btn text-sm w-full add-to-basket" data-name="Black Hoodie" data-price="350">Add to Basket</button>
+      </div>
+
+      <div class="bg-white/5 p-4 rounded-2xl text-center card-hover" data-aos="fade-up" data-aos-delay="300">
+        <img src="red.jpg" class="mx-auto w-full h-64 object-cover rounded-xl mb-4">
+        <h3 class="text-xl font-semibold mb-2">Red Hoodie</h3>
+        <p class="text-gray-400 mb-3">ستايل شبابي وعصري.</p>
+        <button class="glow-btn text-sm w-full add-to-basket" data-name="Red Hoodie" data-price="400">Add to Basket</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 text-center text-gray-500 text-sm"> © 2026 NØVÊ – All Rights Reserved </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuBtn.onclick = function () { mobileMenu.classList.toggle("hidden"); };
+
+    // Add to Basket
+    document.querySelectorAll(".add-to-basket").forEach(btn => {
+      btn.addEventListener("click", function () {
+        const name = this.dataset.name;
+        const price = parseInt(this.dataset.price);
+        let basket = JSON.parse(localStorage.getItem("basket") || "[]");
+        basket.push({ name, price, quantity: 1 });
+        localStorage.setItem("basket", JSON.stringify(basket));
+        alert(`${name} تم إضافته إلى السلة بسعر ${price} ج.م`);
+      });
+    });
+  </script>
+</body>
+</html>

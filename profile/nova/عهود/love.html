@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>For Ahood</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:linear-gradient(180deg,#0b0b0b,#000);
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Arial', sans-serif;
+}
+
+.container{
+  text-align:center;
+  color:#fff;
+  z-index:2;
+  max-width:360px;
+}
+
+h2{
+  color:#ff6b8a;
+  font-size:26px;
+  margin-bottom:10px;
+}
+
+#text{
+  font-size:16px;
+  line-height:1.9;
+  color:#e0e0e0;
+  min-height:120px;
+}
+
+/* Image */
+.img-box{
+  position:relative;
+  display:inline-block;
+  margin:20px 0;
+}
+
+img{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow:0 0 35px rgba(255,105,135,0.5);
+}
+
+/* Hearts from image */
+.img-box::after{
+  content:"❤ ❤ ❤ ❤ ❤";
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  color:#ff5c8a;
+  opacity:0;
+  animation:pop 2s infinite;
+}
+
+@keyframes pop{
+  0%{opacity:0; transform:translate(-50%,-50%) scale(0.5);}
+  50%{opacity:1;}
+  100%{opacity:0; transform:translate(-50%,-80%) scale(1.4);}
+}
+
+/* Falling hearts */
+.heart{
+  position:absolute;
+  color:#ff5c8a;
+  animation:fall linear infinite;
+}
+
+@keyframes fall{
+  from{transform:translateY(-10vh); opacity:1;}
+  to{transform:translateY(110vh); opacity:0;}
+}
+
+/* Button */
+button{
+  margin-top:20px;
+  padding:10px 22px;
+  border:none;
+  border-radius:20px;
+  background:#ff5c8a;
+  color:#fff;
+  font-size:14px;
+  cursor:pointer;
+  opacity:0;
+  animation:showBtn 1.5s forwards;
+  animation-delay:9s;
+}
+
+@keyframes showBtn{
+  to{opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <h2>عهود</h2>
+
+  <div class="img-box">
+        <img src="صوره/WhatsApp Image 2026-01-05 at 8.47.26 PM.jpeg" alt="Ahood">
+
+  </div>
+
+  <div id="text"></div>
+
+  <button onclick="finalMessage()">رسالة أخيرة 💌</button>
+</div>
+
+<script>
+// Typing effect
+const message = `
+كنت عايز أعمل حاجة  
+مش كبيرة  
+بس تفرّحك شوية  
+
+علشان وجودك  
+بيفرق  
+وبيعدّي اليوم بشكل أحلى 🤍
+`;
+
+let i = 0;
+function typeText(){
+  if(i < message.length){
+    document.getElementById("text").innerHTML += message.charAt(i);
+    i++;
+    setTimeout(typeText, 60);
+  }
+}
+typeText();
+
+// Falling hearts
+function createHeart(){
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤";
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.fontSize = (Math.random()*20 + 10) + "px";
+  heart.style.animationDuration = (Math.random()*4 + 4) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(()=>heart.remove(),8000);
+}
+setInterval(createHeart,400);
+
+// Final message
+function finalMessage(){
+  document.getElementById("text").innerHTML =
+  "يمكن الكلام ميكفّيش…<br>بس حبيت أقولك إنك <b>مهمّة</b> 🤍";
+}
+</script>
+
+</body>
+</html>

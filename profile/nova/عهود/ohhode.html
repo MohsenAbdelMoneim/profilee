@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>For Ahood</title>
+
+<style>
+:root{
+  --bg:#0b0b0b;
+  --text:#e5e5e5;
+  --soft:#bdbdbd;
+  --accent:#ff7a95;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  height:100vh;
+  background:var(--bg);
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  color:var(--text);
+}
+
+/* container */
+.wrapper{
+  width:90%;
+  max-width:420px;
+  text-align:center;
+  animation:fadeIn 2s ease forwards;
+}
+
+/* image */
+.photo{
+  width:200px;
+  height:200px;
+  margin:0 auto 30px;
+  border-radius:50%;
+  overflow:hidden;
+  box-shadow:0 30px 60px rgba(0,0,0,.7);
+  position:relative;
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* soft glow */
+.photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  box-shadow:0 0 50px rgba(255,122,149,.25);
+}
+
+/* text */
+.name{
+  font-size:26px;
+  font-weight:300;
+  margin-bottom:16px;
+}
+
+.text{
+  font-size:15.5px;
+  line-height:2;
+  color:var(--soft);
+  min-height:130px;
+  white-space:pre-line;
+}
+
+/* button */
+button{
+  margin-top:28px;
+  padding:12px 34px;
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,.15);
+  background:transparent;
+  color:var(--text);
+  font-size:14px;
+  cursor:pointer;
+  opacity:0;
+  animation:showBtn 1.8s ease forwards;
+  animation-delay:10s;
+  transition:.3s;
+}
+
+button:hover{
+  background:rgba(255,255,255,.05);
+  border-color:var(--accent);
+}
+
+/* hearts (very minimal) */
+.heart{
+  position:absolute;
+  color:var(--accent);
+  font-size:12px;
+  opacity:.25;
+  animation:float linear infinite;
+}
+
+@keyframes float{
+  from{transform:translateY(110vh);}
+  to{transform:translateY(-10vh);}
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes showBtn{
+  to{opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="wrapper">
+  <div class="photo">
+    <img src="ahood.jpg" alt="Ahood">
+  </div>
+
+  <div class="name">عهود</div>
+
+  <div id="text" class="text"></div>
+
+  <button onclick="finalMessage()">رسالة أخيرة</button>
+</div>
+
+<script>
+// typing (editorial style)
+const message = `
+في ناس
+مش بتدخل الحياة بضجيج…
+
+بتدخل بهدوء
+وتغيّر الإحساس كله
+
+من غير ما تطلب
+ولا تحاول 🤍
+
+بحبك اوي سحلولتي
+`;
+
+let i = 0;
+const speed = 65;
+function type(){
+  if(i < message.length){
+    document.getElementById("text").innerHTML += message.charAt(i);
+    i++;
+    setTimeout(type, speed);
+  }
+}
+type();
+
+// minimal hearts
+function heart(){
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "❤";
+  h.style.left = Math.random()*100 + "vw";
+  h.style.animationDuration = (Math.random()*6 + 10) + "s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),16000);
+}
+setInterval(heart,1200);
+
+// final message
+function finalMessage(){
+  document.getElementById("text").innerHTML =
+`ممكن ما أكونش
+بعرف أعبّر كويس…
+
+بس الحقيقة البسيطة
+إني مرتاح
+وأنا معاكي
+
+وبحبك
+بالطريقة
+اللي تليق بيكي 🤍
+
+بحبك اوي سحلوله
+`
+
+;
+}
+</script>
+
+</body>
+</html>

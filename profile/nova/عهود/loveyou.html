@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>For Ahood</title>
+
+<style>
+
+    .name{
+        
+  color:#ff6b8a;
+  font-size:26px;
+  margin-bottom:10px;
+}
+
+   
+:root{
+  --bg:#0b0b0b;
+  --text:#e5e5e5;
+  --soft:#bdbdbd;
+  --accent:#ff7a95;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  height:100vh;
+  background:var(--bg);
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  color:var(--text);
+}
+
+.wrapper{
+  width:90%;
+  max-width:420px;
+  text-align:center;
+  opacity:0;
+  animation:fadeIn 2s forwards;
+}
+
+.photo{
+  width:180px;
+  height:180px;
+  margin:0 auto 25px;
+  border-radius:50%;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(255,122,149,0.5);
+  position:relative;
+  animation:photoGlow 3s ease-in-out infinite alternate;
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  box-shadow:0 0 40px rgba(255,122,149,0.25);
+}
+
+.name{
+  font-size:26px;
+  font-weight:300;
+  margin-bottom:16px;
+}
+
+.text{
+  font-size:16px;
+  line-height:2;
+  color:var(--soft);
+  min-height:150px;
+  white-space:pre-line;
+}
+
+button{
+  margin-top:28px;
+  padding:12px 34px;
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,.15);
+  background:transparent;
+  color:var(--text);
+  font-size:14px;
+  cursor:pointer;
+  opacity:0;
+  transition:.3s;
+}
+
+button:hover{
+  background:rgba(255,255,255,.05);
+  border-color:var(--accent);
+}
+
+/* floating hearts */
+.heart{
+  position:absolute;
+  color:var(--accent);
+  font-size:14px;
+  opacity:0.8;
+  animation:float linear infinite;
+}
+
+@keyframes float{
+  0%{transform:translateY(0) scale(0.6); opacity:0.8;}
+  50%{opacity:1;}
+  100%{transform:translateY(-110vh) scale(1.2); opacity:0;}
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes photoGlow{
+  from{box-shadow:0 10px 30px rgba(255,120,150,0.35);}
+  to{box-shadow:0 10px 30px rgba(255,120,150,0.8);}
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="wrapper">
+  <div class="photo" id="photo">
+    <img src="صوره/WhatsApp Image 2026-01-05 at 8.47.17 PM.jpeg" alt="Ahood">
+  </div>
+
+  <div class="name">عهود</div>
+
+  <div id="text" class="text">
+في ناس مش بتدخل الحياة بضجيج… بحبك 💖
+بتدخل بهدوء وتغيّر الإحساس كله… بحبك 💖
+من غير ما تطلب ولا تحاول… بحبك 💖
+وأنا لقيت نفسي بحبك كل يوم أكثر 💖
+  </div>
+
+  <button id="finalBtn">رسالة أخيرة 🤍</button>
+</div>
+
+<script>
+// floating hearts from photo
+function heart(){
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "❤";
+  const photo = document.getElementById("photo");
+  const rect = photo.getBoundingClientRect();
+  h.style.left = (rect.left + Math.random()*rect.width) + "px";
+  h.style.top = (rect.top + rect.height/2) + "px";
+  h.style.fontSize = (Math.random()*12 + 12) + "px";
+  h.style.animationDuration = (Math.random()*5 + 8) + "s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),13000);
+}
+setInterval(heart,500);
+
+// show final message on button click
+document.getElementById("finalBtn").addEventListener("click", ()=>{
+  document.getElementById("text").innerHTML =
+`يمكن ما بعرفش أعبّر كويس…
+
+بس الحقيقة البسيطة
+إني مرتاح وأنا معاكي
+
+وبحبك بالهدوء
+وبكل لحظة 💖
+
+ومهما حصل… بحبك دايمًا 🤍`;
+  document.getElementById("finalBtn").style.opacity = "0";
+});
+</script>
+
+</body>
+</html>

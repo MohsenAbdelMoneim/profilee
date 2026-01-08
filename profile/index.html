@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohsen Abdel Moneim | Frontend Developer</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- SEO -->
+  <meta name="description" content="Frontend Developer Portfolio of Mohsen Abdel Moneim. HTML, CSS, JavaScript, Tailwind CSS projects.">
+  <meta name="keywords" content="Frontend Developer, Portfolio, HTML, CSS, JavaScript, Tailwind">
+  <meta name="author" content="Mohsen Abdel Moneim">
+  <meta property="og:title" content="Mohsen | Frontend Developer">
+  <meta property="og:description" content="Professional frontend developer portfolio">
+  <meta property="og:image" content="profile.jpg">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="favicon.ico">
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    a, button { transition: all 0.3s ease; }
+  </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition duration-500">
+
+<!-- ===== Loader ===== -->
+<div id="loader" class="fixed inset-0 bg-white dark:bg-gray-900 flex items-center justify-center z-[9999]">
+  <div class="w-12 h-12 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+</div>
+
+<!-- ===== Eng Mohsen Tag (ثابت) ===== -->
+<div id="eng-tag" class="fixed bottom-10 left-10 z-50 flex flex-col items-center cursor-pointer">
+  <div id="top-line" class="w-20 h-1 mb-1 rounded animate-pulse bg-gradient-to-r from-indigo-500 via-pink-500 to-yellow-500"></div>
+  
+  <span id="eng-typing" class="bg-indigo-600 text-white px-4 py-2 rounded-full shadow-lg text-lg font-semibold">
+    I’m Frontend Mohsen
+  </span>
+  
+  <div id="bottom-line" class="w-20 h-1 mt-1 rounded animate-pulse bg-gradient-to-r from-yellow-500 via-pink-500 to-indigo-500"></div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur shadow z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="font-bold text-xl">Mohsen.dev</h1>
+    <div class="flex items-center gap-4">
+      <a href="#about" class="hover:text-indigo-500">About</a>
+      <a href="#skills" class="hover:text-indigo-500">Skills</a>
+      <a href="#projects" class="hover:text-indigo-500">Projects</a>
+      <a href="#contact" class="hover:text-indigo-500">Contact</a>
+      <button id="themeToggle" class="text-xl">🌙</button>
+      <button id="langToggle" class="px-3 py-1 border rounded">AR</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="min-h-screen flex flex-col items-center justify-center pt-24" data-aos="fade-up">
+  <div class="text-center">
+    <div class="relative w-48 h-48 mx-auto mb-6">
+      <div class="absolute inset-0 bg-indigo-500 blur-2xl opacity-40 rounded-full animate-pulse"></div>
+      <img src="img/737eab31-c907-4afd-8b8f-f83b72072703.jpg" class="relative w-48 h-48 rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-xl">
+    </div>
+
+    <!-- Hero Name typing -->
+    <h2 class="text-3xl md:text-5xl font-bold mb-4 text-center">
+      <span id="name-typing"></span>
+    </h2>
+
+    <p class="text-indigo-500 font-semibold mb-6 text-lg md:text-xl lg:text-2xl"
+       data-en="I build clean, responsive, and user-friendly web interfaces."
+       data-ar="أقوم ببناء واجهات ويب نظيفة، سريعة، ومتجاوبة.">
+      I build clean, responsive, and user-friendly web interfaces.
+    </p>
+
+    <div class="flex justify-center gap-4">
+      <a href="#contact" class="px-6 py-3 bg-indigo-600 text-white rounded-full hover:scale-105 transition">
+       CONTACT Me
+      </a>
+      <a href="Professional Minimalist CV Resume.pdf" class="px-6 py-3 border border-indigo-600 text-indigo-600 rounded-full hover:bg-indigo-600 hover:text-white transition">
+        Download CV
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="py-20 max-w-5xl mx-auto px-6" data-aos="fade-up">
+  <h3 class="text-3xl font-bold mb-6 text-center" data-en="About Me" data-ar="من أنا">About Me</h3>
+  <p id="about-text" class="text-center leading-8 text-gray-600 dark:text-gray-400 text-lg md:text-xl lg:text-2xl"
+     data-en="I’m a Frontend Developer with strong attention to detail and a passion for clean UI/UX. I enjoy turning ideas into real, interactive products and continuously improving my skills through hands-on projects."
+     data-ar="أنا مطور واجهات أمامية أهتم بالتفاصيل وتجربة المستخدم، وأحب تحويل الأفكار إلى منتجات حقيقية تفاعلية مع التطوير المستمر لمهاراتي من خلال المشاريع العملية.">
+    I’m a Frontend Developer with strong attention to detail...
+  </p>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills" class="py-20 bg-white dark:bg-gray-800" data-aos="fade-up">
+  <div class="max-w-6xl mx-auto px-6">
+    <h3 class="text-3xl font-bold mb-12 text-center" data-en="Skills" data-ar="المهارات">Skills</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="skill">HTML / CSS / JavaScript</div>
+      <div class="skill">Tailwind / Bootstrap</div>
+      <div class="skill">React (Learning)</div>
+      <div class="skill">UI / UX Design</div>
+      <div class="skill">Figma / Adobe XD</div>
+      <div class="skill">Media Buying</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects" class="py-20 max-w-6xl mx-auto px-6">
+  <h3 class="text-3xl font-bold mb-12 text-center" data-en="Projects" data-ar="المشاريع">Projects</h3>
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+    <div class="project-card" data-aos="zoom-in">
+      <img src="img/gym.png" alt="Game Project">
+      <div class="p-5">
+        <h4>gym Project</h4>
+        <p>Interactive game using JS and HTML/CSS.</p>
+        <div>
+          <a href="https://form-u8pa.vercel.app" target="_blank">Live</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-aos="zoom-in">
+      <img src="img/منصه.png" alt="Learning Project">
+      <div class="p-5">
+        <h4>منصه Project</h4>
+        <p>Learning platform project.</p>
+        <div>
+          <a href="https://learing-livid.vercel.app" target="_blank">Live</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-aos="zoom-in">
+      <img src="img/عربيات.png" alt="Portfolio Project">
+      <div class="p-5">
+        <h4>Portfolio Project</h4>
+        <p>Previous portfolio project.</p>
+        <div>
+          <a href="https://tarekameramer.github.io/mohsen1Abdul-Moneim/" target="_blank">Live</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-aos="zoom-in">
+      <img src="img/تلفونات.png" alt="Fourth Project">
+      <div class="p-5">
+        <h4>Fourth Project</h4>
+        <p>Latest web project.</p>
+        <div>
+          <a href="https://123-brown-rho.vercel.app" target="_blank">Live</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-aos="zoom-in">
+      <img src="img/هودي.png" alt="Fourth Project">
+      <div class="p-5">
+        <h4>Fourth Project</h4>
+        <p>Latest web project.</p>
+        <div>
+          <a href="nova/Home.html" target="_blank">Live</a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="py-20 bg-gray-900 text-white">
+  <div class="max-w-4xl mx-auto px-6">
+    <h3 class="text-3xl font-bold mb-8 text-center" data-en="Contact Me" data-ar="تواصل معي">Contact Me</h3>
+
+    <form id="contact-form" class="grid gap-4">
+      <input type="text" name="name" placeholder="Your Name" required class="p-3 rounded text-black">
+      <input type="email" name="email" placeholder="Your Email" required class="p-3 rounded text-black">
+      <textarea name="message" placeholder="Your Message" required class="p-3 rounded text-black"></textarea>
+      <button class="bg-indigo-600 py-3 rounded hover:bg-indigo-700 transition">Send Message</button>
+    </form>
+
+    <p class="mt-6 text-gray-400 text-center">📍 Cairo, Egypt | 📞 01096295395 | 📧 mt9276404@gmail.com</p>
+    <p class="mt-2 text-gray-500 text-center">© 2026 Mohsen Abdel Moneim</p>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+</script>
+
+</body>
+</html>
