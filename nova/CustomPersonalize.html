@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NØVÊ – Custom T-Shirt</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+body{
+  background:#0b0b0b;
+  color:white;
+  font-family: Arial, sans-serif;
+}
+
+.glow-btn{
+  background: linear-gradient(90deg,#7c3aed,#9333ea);
+  padding:14px 36px;
+  border-radius:999px;
+  font-weight:600;
+  transition:.4s;
+}
+.glow-btn:hover{
+  box-shadow:0 0 30px rgba(147,51,234,.8);
+  transform:translateY(-3px);
+}
+
+/* Floating Animations */
+.floating-img{
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-20px)}
+  100%{transform:translateY(0)}
+}
+
+/* Cards */
+.card-hover{
+  transition:.4s;
+}
+.card-hover:hover{
+  transform:translateY(-10px);
+  box-shadow:0 25px 50px rgba(255,255,255,.08);
+}
+
+/* Preview overlay */
+#colorOverlay{
+  mix-blend-mode: multiply;
+  opacity:0.8;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="Home.html" class="text-3xl font-bold tracking-widest">NØVÊ<span class="text-purple-400 ml-2">Style</span></a>
+    <ul class="hidden md:flex gap-8 text-sm uppercase tracking-wide">
+         <li><a href="Home.html" class="hover:text-purple-400">Home</a></li>
+      <li><a href="Men Page.html" class="hover:text-purple-400">Men</a></li>
+      <li><a href="Women Page.html" class="hover:text-purple-400">Women</a></li>
+      <li><a href="gift.html" class="hover:text-purple-400">Gifts</a></li>
+      <li><a href="Custom Page.html" class="hover:text-purple-400">Custom Page</a></li>
+      <li><a href="CustomPersonalize.html" class="hover:text-purple-400">CustomPersonalize</a></li>
+      <li><a href="Gift Page.html" class="hover:text-purple-400">Gift Boxes
+</a></li>
+      <li><a href="Story Page.html" class="hover:text-purple-400">Gift Page</a></li>
+      <li><a href="basket.html" class="hover:text-purple-400">Basket</a></li>
+
+    </ul>
+    <button id="menuBtn" class="md:hidden text-3xl">☰</button>
+  </div>
+  <div id="mobileMenu" class="hidden bg-black/95 px-6 pb-6">
+    <ul class="flex flex-col gap-4 text-sm uppercase">
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="man.html">Men</a></li>
+      <li><a href="woman.html">Women</a></li>
+      <li><a href="gift.html">Gifts</a></li>
+      <li><a href="custom.html">Custom</a></li>
+      <li><a href="basket.html">Basket</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="h-24"></div> <!-- spacer -->
+
+<!-- CUSTOM SECTION -->
+<section class="py-24 max-w-7xl mx-auto px-6">
+  <h2 class="text-4xl text-center mb-16">Customize Your T-Shirt</h2>
+
+  <div class="grid md:grid-cols-2 gap-12">
+
+    <!-- Controls -->
+    <div class="flex flex-col gap-6" data-aos="fade-right">
+      <label>
+        Product Image:
+        <select id="productSelect" class="w-full p-3 rounded-xl bg-white/10 text-white">
+          <option value="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=900&q=80">White T-Shirt</option>
+          <option value="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=900&q=80">Black T-Shirt</option>
+        </select>
+      </label>
+
+      <label>
+        Custom Text:
+        <input type="text" id="customText" placeholder="اكتب هنا" class="w-full p-3 rounded-xl bg-white/10 text-white">
+      </label>
+
+      <label>
+        Text Color:
+        <input type="color" id="textColor" value="#ffffff" class="w-full h-10 p-1 rounded-xl">
+      </label>
+
+      <label>
+        T-Shirt Color:
+        <input type="color" id="shirtColor" value="#ffffff" class="w-full h-10 p-1 rounded-xl">
+      </label>
+
+      <button onclick="updatePreview()" class="glow-btn mt-4">Update Preview</button>
+    </div>
+
+    <!-- Preview -->
+    <div class="bg-white/5 p-6 rounded-2xl flex flex-col items-center card-hover" data-aos="fade-up">
+      <h3 class="text-xl font-semibold mb-4">Preview</h3>
+      <div class="relative w-full max-w-sm">
+        <img id="preview" src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=900&q=80" alt="Preview" class="w-full rounded-xl">
+        <div id="colorOverlay" class="absolute top-0 left-0 w-full h-full rounded-xl pointer-events-none"></div>
+        <span id="previewText" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-xl font-bold"></span>
+      </div>
+      <p class="text-gray-400 mt-4 text-center">هتظهر هنا النتيجة النهائية لتصميمك.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-8 text-center text-gray-500 text-sm">
+  © 2026 NØVÊ – All Rights Reserved
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({ once:true, duration:900 });
+
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+menuBtn.onclick = function(){
+  mobileMenu.classList.toggle("hidden");
+};
+
+function updatePreview() {
+  const imgSrc = document.getElementById("productSelect").value;
+  const text = document.getElementById("customText").value;
+  const color = document.getElementById("textColor").value;
+  const shirtColor = document.getElementById("shirtColor").value;
+
+  document.getElementById("preview").src = imgSrc;
+  document.getElementById("previewText").textContent = text;
+  document.getElementById("previewText").style.color = color;
+  document.getElementById("colorOverlay").style.backgroundColor = shirtColor;
+}
+</script>
+</body>
+</html>

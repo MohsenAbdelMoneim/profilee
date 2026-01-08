@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NØVÊ – Our Story</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+body{
+  background:#0b0b0b;
+  color:white;
+  font-family: Arial, sans-serif;
+}
+
+.glow-btn{
+  background: linear-gradient(90deg,#7c3aed,#9333ea);
+  padding:14px 36px;
+  border-radius:999px;
+  font-weight:600;
+  transition:.4s;
+}
+.glow-btn:hover{
+  box-shadow:0 0 30px rgba(147,51,234,.8);
+  transform:translateY(-3px);
+}
+
+/* Floating Animations */
+.floating-img{
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-20px)}
+  100%{transform:translateY(0)}
+}
+
+/* Cards */
+.card-hover{
+  transition:.4s;
+}
+.card-hover:hover{
+  transform:translateY(-10px);
+  box-shadow:0 25px 50px rgba(255,255,255,.08);
+}
+
+/* Section Background Effects */
+.section-bg{
+  position:relative;
+}
+.section-bg::before{
+  content:"";
+  position:absolute;
+  top:-50px; left:-50px;
+  width:400px; height:400px;
+  background:linear-gradient(135deg,#9333ea,#7c3aed);
+  filter:blur(150px);
+  z-index:0;
+}
+.section-bg::after{
+  content:"";
+  position:absolute;
+  bottom:-50px; right:-50px;
+  width:400px; height:400px;
+  background:linear-gradient(135deg,#7c3aed,#9333ea);
+  filter:blur(150px);
+  z-index:0;
+}
+</style>
+</head>
+<body>
+
+<nav class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="Home.html" class="text-3xl font-bold tracking-widest">NØVÊ<span class="text-purple-400 ml-2">Style</span></a>
+    <ul class="hidden md:flex gap-6 text-sm uppercase tracking-wide">
+           <li><a href="Home.html" class="hover:text-purple-400">Home</a></li>
+      <li><a href="Men Page.html" class="hover:text-purple-400">Men</a></li>
+      <li><a href="Women Page.html" class="hover:text-purple-400">Women</a></li>
+      <li><a href="gift.html" class="hover:text-purple-400">Gifts</a></li>
+      <li><a href="Custom Page.html" class="hover:text-purple-400">Custom Page</a></li>
+      <li><a href="CustomPersonalize.html" class="hover:text-purple-400">CustomPersonalize</a></li>
+      <li><a href="Gift Page.html" class="hover:text-purple-400">Gift Boxes
+</a></li>
+      <li><a href="Story Page.html" class="hover:text-purple-400">Gift Page</a></li>
+      <li><a href="basket.html" class="hover:text-purple-400">Basket</a></li>
+
+    </ul>
+    <button id="menuBtn" class="md:hidden text-3xl">☰</button>
+  </div>
+  <div id="mobileMenu" class="hidden bg-black/95 px-6 pb-6">
+    <ul class="flex flex-col gap-4 text-sm uppercase">
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="Men Page.html">Men</a></li>
+      <li><a href="Women Page.html">Women</a></li>
+      <li><a href="gift.html">Gifts</a></li>
+      <li><a href="Custom Page.html">Custom</a></li>
+      <li><a href="basket.html">Basket</a></li>
+       <li><a href="CustomPersonalize.html">CustomPersonalize</a></li>
+
+    </ul>
+  </div>
+</nav>
+<div class="h-24"></div> <!-- spacer -->
+<!-- HERO / STORY -->
+<section class="min-h-[100vh] flex items-center section-bg">
+  <div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- Text -->
+    <div data-aos="fade-right">
+      <h1 class="text-6xl md:text-7xl font-extrabold mb-6">
+        Our <span class="text-purple-400">Story</span>
+      </h1>
+      <p class="text-gray-300 text-lg md:text-2xl mb-8 leading-relaxed">
+        NØVÊ مش مجرد براند… ده إحساس، أسلوب حياة، وهوية لكل واحد عايز يعبّر عن نفسه. كل قطعة عندنا معمولة عشان تحكي حكايتك وتخلي ستايلك فريد ومختلف.
+      </p>
+      <a href="man.html" class="glow-btn text-lg inline-block">Discover Collections</a>
+    </div>
+
+    <!-- Image -->
+    <div class="flex justify-center" data-aos="fade-left">
+      <img src="WhatsApp Image 2026-01-04 at 9.21.21 PM.jpeg"
+           class="w-[350px] md:w-[450px] lg:w-[500px] floating-img drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)] rounded-xl">
+    </div>
+  </div>
+</section>
+
+
+<!-- TEAM / FEATURED -->
+<section class="py-24 max-w-7xl mx-auto px-6">
+  <h2 class="text-4xl text-center mb-16">Why NØVÊ?</h2>
+
+  <div class="grid md:grid-cols-3 gap-10">
+    <div class="bg-white/5 p-6 rounded-2xl text-center card-hover" data-aos="fade-up">
+      <img src="0df31358-c64a-4401-b5ee-9349a9c24535.jpg" class="mx-auto w-32 h-32 rounded-full mb-4">
+      <h3 class="text-xl font-semibold mb-2">High Quality</h3>
+      <p class="text-gray-400">كل قطعة مصنوعة بعناية لتدوم وتبقى فخمة.</p>
+    </div>
+
+    <div class="bg-white/5 p-6 rounded-2xl text-center card-hover" data-aos="fade-up" data-aos-delay="100">
+      <img src="6b973531-ca86-4d5e-b799-cbbf2fd174a6.jpg" class="mx-auto w-32 h-32 rounded-full mb-4">
+      <h3 class="text-xl font-semibold mb-2">Unique Style</h3>
+      <p class="text-gray-400">ستايل مميز يعكس شخصيتك وبيخليك مختلف عن الباقيين.</p>
+    </div>
+
+    <div class="bg-white/5 p-6 rounded-2xl text-center card-hover" data-aos="fade-up" data-aos-delay="200">
+      <img src="images1.jpg" class="mx-auto w-32 h-32 rounded-full mb-4">
+      <h3 class="text-xl font-semibold mb-2">Custom Prints</h3>
+      <p class="text-gray-400">اطبع اللي تحبه على أي قطعة من مجموعتنا.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-8 text-center text-gray-500 text-sm">
+  © 2026 NØVÊ – All Rights Reserved
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({ once:true, duration:900 });
+
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+menuBtn.onclick = function(){
+  mobileMenu.classList.toggle("hidden");
+};
+</script>
+</body>
+</html>

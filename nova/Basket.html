@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NØVÊ – Basket</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { background: #0b0b0b; color: white; font-family: Arial, sans-serif; }
+button { cursor: pointer; }
+.quantity-input { width: 50px; text-align: center; background: #1a1a1a; border: 1px solid #444; color: white; border-radius: 5px; }
+.remove-btn { background: #e11d48; padding: 5px 10px; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+.remove-btn:hover { background: #be123c; }
+.order-btn { background: #9333ea; padding: 10px 20px; border-radius: 999px; font-weight: bold; transition: 0.3s; }
+.order-btn:hover { background: #7c3aed; }
+</style>
+</head>
+<body>
+
+<nav class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="Home.html" class="text-3xl font-bold tracking-widest">NØVÊ<span class="text-purple-400 ml-2">Style</span></a>
+    <ul class="hidden md:flex gap-6 text-sm uppercase tracking-wide">
+      <li><a href="Home.html" class="hover:text-purple-400">Home</a></li>
+      <li><a href="Men Page.html" class="hover:text-purple-400">Men</a></li>
+      <li><a href="Women Page.html" class="hover:text-purple-400">Women</a></li>
+      <li><a href="gift.html" class="hover:text-purple-400">Gifts</a></li>
+      <li><a href="Custom Page.html" class="hover:text-purple-400">Custom Page</a></li>
+      <li><a href="CustomPersonalize.html" class="hover:text-purple-400">CustomPersonalize</a></li>
+      <li><a href="Gift Page.html" class="hover:text-purple-400">Gift Boxes
+</a></li>
+      <li><a href="Story Page.html" class="hover:text-purple-400">Gift Page</a></li>
+      <li><a href="basket.html" class="hover:text-purple-400">Basket</a></li>
+
+
+    </ul>
+    <button id="menuBtn" class="md:hidden text-3xl">☰</button>
+  </div>
+  <div id="mobileMenu" class="hidden bg-black/95 px-6 pb-6">
+    <ul class="flex flex-col gap-4 text-sm uppercase">
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="Men Page.html">Men</a></li>
+      <li><a href="Women Page.html">Women</a></li>
+      <li><a href="gift.html">Gifts</a></li>
+      <li><a href="Custom Page.html">Custom</a></li>
+      <li><a href="basket.html">Basket</a></li>
+       <li><a href="CustomPersonalize.html">CustomPersonalize</a></li>
+
+    </ul>
+  </div>
+</nav>
+<div class="h-24"></div> <!-- spacer -->
+
+<!-- BASKET SECTION -->
+<section class="max-w-5xl mx-auto px-6 py-12">
+  <h1 class="text-4xl font-bold mb-8 text-center">سلة مشترياتك 🛒</h1>
+  <div id="basketContainer" class="space-y-6"></div>
+
+  <div class="mt-8 text-center">
+    <h2 class="text-xl mb-4">المجموع الكلي: <span id="totalPrice">0</span> جنيه</h2>
+    <button id="orderNow" class="order-btn">اطلب الآن</button>
+  </div>
+</section>
+
+<script>
+// Menu toggle
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+if(menuBtn) menuBtn.onclick = () => mobileMenu.classList.toggle("hidden");
+
+// Load basket
+function loadBasket() {
+  const basket = JSON.parse(localStorage.getItem("basket")) || [];
+  const container = document.getElementById("basketContainer");
+  container.innerHTML = "";
+
+  let total = 0;
+
+  basket.forEach((item, index) => {
+    total += item.price * item.quantity;
+
+    const div = document.createElement("div");
+    div.className = "flex justify-between items-center bg-black/50 p-4 rounded-xl";
+
+    div.innerHTML = `
+      <div>
+        <h3 class="text-lg font-bold">${item.name}</h3>
+        <p>سعر الوحدة: ${item.price} جنيه</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <input type="number" min="1" value="${item.quantity}" data-index="${index}" class="quantity-input">
+        <button class="remove-btn" data-index="${index}">حذف</button>
+      </div>
+    `;
+    container.appendChild(div);
+  });
+
+  document.getElementById("totalPrice").textContent = total;
+  attachEvents();
+}
+
+// Attach events to inputs and remove buttons
+function attachEvents() {
+  document.querySelectorAll(".quantity-input").forEach(input => {
+    input.addEventListener("change", (e) => {
+      const idx = e.target.dataset.index;
+      const val = parseInt(e.target.value);
+      const basket = JSON.parse(localStorage.getItem("basket")) || [];
+      if(val < 1) e.target.value = basket[idx].quantity;
+      else {
+        basket[idx].quantity = val;
+        localStorage.setItem("basket", JSON.stringify(basket));
+        loadBasket();
+      }
+    });
+  });
+
+  document.querySelectorAll(".remove-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const idx = e.target.dataset.index;
+      const basket = JSON.parse(localStorage.getItem("basket")) || [];
+      basket.splice(idx,1);
+      localStorage.setItem("basket", JSON.stringify(basket));
+      loadBasket();
+    });
+  });
+}
+
+// Order Now via WhatsApp
+document.getElementById("orderNow").addEventListener("click", () => {
+  const basket = JSON.parse(localStorage.getItem("basket")) || [];
+  if(basket.length === 0) {
+    alert("لا يوجد منتجات في السلة!");
+    return;
+  }
+  let message = "طلب من NØVÊ Style:%0A";
+  let total = 0;
+  basket.forEach(item => {
+    message += `- ${item.name} × ${item.quantity} = ${item.price * item.quantity} جنيه%n`;
+    total += item.price * item.quantity;
+  });
+  message += `المجموع الكلي: ${total} جنيه%n`;
+  const phone = "01096295395";
+  const url = `https://wa.me/${phone}?text=${message}`;
+  window.open(url, "_blank");
+});
+
+loadBasket();
+</script>
+
+</body>
+</html>

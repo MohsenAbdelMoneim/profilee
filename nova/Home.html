@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NØVÊ – Home</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { background: #0b0b0b; color: white; font-family: Arial, sans-serif; }
+.glow-btn { background: linear-gradient(90deg,#7c3aed,#9333ea); padding: 12px 28px; border-radius: 999px; font-weight: 600; transition: .4s; }
+.glow-btn:hover { box-shadow: 0 0 25px rgba(147,51,234,.8); transform: translateY(-3px); }
+.card-hover { transition: .4s; }
+.card-hover:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(147,51,234,.3); }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="Home.html" class="text-3xl font-bold tracking-widest">NØVÊ<span class="text-purple-400 ml-2">Style</span></a>
+    <ul class="hidden md:flex gap-6 text-sm uppercase tracking-wide">
+        <li><a href="Home.html" class="hover:text-purple-400">Home</a></li>
+      <li><a href="Men Page.html" class="hover:text-purple-400">Men</a></li>
+      <li><a href="Women Page.html" class="hover:text-purple-400">Women</a></li>
+      <li><a href="gift.html" class="hover:text-purple-400">Gifts</a></li>
+      <li><a href="Custom Page.html" class="hover:text-purple-400">Custom Page</a></li>
+      <li><a href="CustomPersonalize.html" class="hover:text-purple-400">CustomPersonalize</a></li>
+      <li><a href="Gift Page.html" class="hover:text-purple-400">Gift Boxes
+</a></li>
+      <li><a href="Story Page.html" class="hover:text-purple-400">Gift Page</a></li>
+      <li><a href="basket.html" class="hover:text-purple-400">Basket</a></li>
+
+
+    </ul>
+    <button id="menuBtn" class="md:hidden text-3xl">☰</button>
+  </div>
+  <div id="mobileMenu" class="hidden bg-black/95 px-6 pb-6">
+    <ul class="flex flex-col gap-4 text-sm uppercase">
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="Men Page.html">Men</a></li>
+      <li><a href="Women Page.html">Women</a></li>
+      <li><a href="gift.html">Gifts</a></li>
+      <li><a href="Custom Page.html">Custom</a></li>
+      <li><a href="basket.html">Basket</a></li>
+       <li><a href="CustomPersonalize.html">CustomPersonalize</a></li>
+
+    </ul>
+  </div>
+</nav>
+<div class="h-24"></div> <!-- spacer -->
+
+<!-- HERO SECTION -->
+<section class="min-h-[60vh] flex items-center">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
+    <div>
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-6">
+        Welcome to <span class="text-purple-400">NØVÊ Style</span>
+      </h1>
+      <p class="text-gray-300 text-lg md:text-xl mb-8 leading-relaxed">
+        اكتشف أحدث صيحات الملابس والهدايا، وخصص منتجاتك كما تريد!
+      </p>
+      <div class="flex gap-4 flex-wrap">
+        <a href="Men Page.html" class="glow-btn">Shop Men</a>
+        <a href="Women Page.html" class="glow-btn">Shop Women</a>
+        <a href="Gift Page.html" class="glow-btn">Gift Boxes</a>
+        <a href="Custom Page.html" class="glow-btn">Customize</a>
+        <a href="basket.html" class="glow-btn">Basket</a>
+      <a href="CustomPersonalize.html" class="glow-btn">CustomPersonalize</a>
+            <a href="Story Page.html" class="glow-btn">Story Page</a>
+
+      </div>
+    </div>
+
+    <div class="flex justify-center">
+      <img src="WhatsApp Image 2026-01-04 at 9.21.21 PM.jpeg" 
+           class="w-[300px] md:w-[450px] lg:w-[500px] rounded-xl shadow-lg">
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURED COLLECTIONS -->
+<section class="py-24 max-w-7xl mx-auto px-6">
+  <h2 class="text-4xl text-center mb-16">Shop Collections</h2>
+
+  <div class="grid gap-6 md:grid-cols-3 md:grid-rows-2">
+
+    <!-- Large Image -->
+    <div class="md:row-span-2 md:col-span-2 relative rounded-2xl overflow-hidden">
+      <img src="0df31358-c64a-4401-b5ee-9349a9c24535.jpg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+      <div class="absolute bottom-0 left-0 w-full bg-black/50 p-4 flex justify-between items-center">
+        <h3 class="text-xl font-bold text-white">Hoodies</h3>
+        <button onclick="addToBasket('Hoodies', 500)" class="bg-purple-600 px-3 py-1 rounded hover:bg-purple-500 transition">Add to Basket</button>
+      </div>
+    </div>
+
+    <!-- Small Image 1 -->
+    <div class="relative rounded-2xl overflow-hidden">
+      <img src="pexels-pixabay-269887.jpg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+      <div class="absolute bottom-0 left-0 w-full bg-black/50 p-4 flex justify-between items-center">
+        <h3 class="text-lg font-bold text-white">Gift Boxes</h3>
+        <button onclick="addToBasket('Gift Boxes', 300)" class="bg-purple-600 px-3 py-1 rounded hover:bg-purple-500 transition">Add to Basket</button>
+      </div>
+    </div>
+
+    <!-- Small Image 2 -->
+    <div class="relative rounded-2xl overflow-hidden">
+      <img src="images.jpg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+      <div class="absolute bottom-0 left-0 w-full bg-black/50 p-4 flex justify-between items-center">
+        <h3 class="text-lg font-bold text-white">Custom Print</h3>
+        <button onclick="addToBasket('Custom Print', 400)" class="bg-purple-600 px-3 py-1 rounded hover:bg-purple-500 transition">Add to Basket</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-8 text-center text-gray-500 text-sm">
+  © 2026 NØVÊ – All Rights Reserved
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+menuBtn.onclick = function() { mobileMenu.classList.toggle("hidden"); };
+
+// GLOBAL ADD TO BASKET FUNCTION
+function addToBasket(name, price) {
+  let basket = JSON.parse(localStorage.getItem("basket")) || [];
+  const existing = basket.find(i => i.name === name);
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    basket.push({name, price, quantity: 1});
+  }
+  localStorage.setItem("basket", JSON.stringify(basket));
+  alert(name + " تم إضافته للسلة ✅");
+}
+</script>
+
+</body>
+</html>
